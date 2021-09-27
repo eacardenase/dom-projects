@@ -317,6 +317,7 @@ nav {
     margin: 0;
     height: 0;
     overflow: hidden;
+    transition: var(--transition);
     /* todo height overflow and transition */
     /* get height 160px or 10rem*/
 }
@@ -343,7 +344,7 @@ nav {
     .links {
         display: flex;
         height: auto;
-        /* todo height */
+        /* important to add the height auto in bigger screens */
     }
     .links a {
         padding: 0;
