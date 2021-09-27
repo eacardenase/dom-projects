@@ -1,12 +1,10 @@
-const getElement = (selector) => {
-  const el = document.querySelector(selector)
-  if (el) return el
-  throw new Error(`Please check your classes : ${selector} does not exist`)
-}
+const links = document.querySelector(".links");
+const btn = document.querySelector(".nav-toggle");
 
-const navToggle = getElement('.nav-toggle')
-const links = getElement('.links')
-
-navToggle.addEventListener('click', function () {
-  links.classList.toggle('show-links')
-})
+btn.addEventListener("click", function () {
+    if (links.classList.contains("show-links")) {
+        links.classList.remove("show-links");
+    } else {
+        links.classList.add("show-links");
+    }
+});
