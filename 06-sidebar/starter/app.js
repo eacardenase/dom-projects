@@ -1,17 +1,11 @@
-const getElement = (selector) => {
-  const el = document.querySelector(selector)
-  if (el) return el
-  throw new Error(`Please check your classes : ${selector} does not exist`)
-}
+const toggleBtn = document.querySelector(".sidebar-toggle");
+const closeBtn = document.querySelector(".close-btn");
+const sidebar = document.querySelector(".sidebar");
 
-const sidebarToggle = getElement('.sidebar-toggle')
-const sidebar = getElement('.sidebar')
-const closeBtn = getElement('.close-btn')
+toggleBtn.addEventListener("click", function () {
+    sidebar.classList.toggle("show-sidebar");
+});
 
-sidebarToggle.addEventListener('click', function () {
-  sidebar.classList.toggle('show-sidebar')
-})
-
-closeBtn.addEventListener('click', () => {
-  sidebar.classList.remove('show-sidebar')
-})
+closeBtn.addEventListener("click", function () {
+    sidebar.classList.remove("show-sidebar");
+});
