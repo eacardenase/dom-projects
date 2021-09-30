@@ -300,6 +300,7 @@ Menu
 .photo {
     height: 200px;
     border-radius: var(--borderRadius);
+    border: 0.25rem solid var(--primary-500);
 }
 
 .item-info header {
