@@ -74,6 +74,7 @@ const menu = [
 ];
 
 const sectionCenter = document.querySelector(".section-center");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
 // loading the menu array
 window.addEventListener("DOMContentLoaded", function () {
@@ -101,3 +102,20 @@ function displayMenuItems(menuItems) {
     displayMenu = displayMenu.join("");
     sectionCenter.innerHTML = displayMenu;
 }
+
+// filter items
+filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (event) {
+        const category = event.currentTarget.dataset.id;
+        const menuCategory = menu.filter(function (menuItem) {
+            if (menuItem.category === category) {
+                return menuItem;
+            }
+        });
+        if (category === "all") {
+            displayMenuItems(menu);
+        } else {
+            displayMenuItems(menuCategory);
+        }
+    });
+});
