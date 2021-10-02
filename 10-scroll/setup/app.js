@@ -31,6 +31,8 @@ const topLink = document.querySelector(".top-link");
 window.addEventListener("scroll", function () {
     const scrollHeight = window.scrollY;
     const navHeight = nav.getBoundingClientRect().height;
+
+    // show fixed navbar at certain Y position
     if (scrollHeight > navHeight) {
         nav.classList.add("fixed-nav");
     } else {
@@ -47,3 +49,20 @@ window.addEventListener("scroll", function () {
 
 // ********** smooth scroll ************
 // select links
+const scrollLinks = document.querySelectorAll(".scroll-link");
+
+scrollLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+        // prevent default behaviour
+        event.preventDefault();
+        // navigate to specific spot
+        const id = event.currentTarget.getAttribute("href").slice(1);
+        const element = document.getElementById(id);
+        let position = element.offsetTop;
+        window.scrollTo({
+            left: 0,
+            top: position,
+        });
+        linksContainer.style.height = 0;
+    });
+});
